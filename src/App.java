@@ -7,10 +7,8 @@ public class App {
 		
 		SwingUtilities.invokeLater(new Runnable() { //Added this new class to make it more robust, helps prevent crashing
 			public void run() {
-				JFrame frame = new JFrame("Hello World"); //New Frame with Name Hello World
-				frame.setSize(600, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Tells application to close when you exit window
-				frame.setVisible(true); 
+				new MainFrame(); //New class of the main frame type
+			
 			}
 		});
 		
