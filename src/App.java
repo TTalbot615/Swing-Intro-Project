@@ -8,7 +8,6 @@ public class App {
 		SwingUtilities.invokeLater(new Runnable() { //Added this new class to make it more robust, helps prevent crashing
 			public void run() {
 				new MainFrame(); //New class of the main frame type
-			
 			}
 		});
 		

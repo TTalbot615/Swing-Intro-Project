@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -7,7 +9,7 @@ import javax.swing.JTextArea;
 public class MainFrame extends JFrame {
 	
 	
-	private JTextArea textArea;
+	private TextPanel textPanel;
 	private JButton btn;
 	
 	public MainFrame() {
@@ -15,10 +17,18 @@ public class MainFrame extends JFrame {
 		
 		setLayout( new BorderLayout()); //Our Chosen Layout Scheme
 		
-		textArea = new JTextArea();
+		textPanel = new TextPanel();
 		btn = new JButton("Click Me!");
 		
-		add(textArea, BorderLayout.CENTER);
+		//Action Listener
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textPanel.appendText("Hello\n");
+			}
+			
+		});
+		
+		add(textPanel, BorderLayout.CENTER);
 		add(btn, BorderLayout.SOUTH);
 		
 		setSize(600, 500);
