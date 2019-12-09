@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+//Controller for the application
+//There shouldn't be communication between the classes
 public class MainFrame extends JFrame {
 	
 	
@@ -20,19 +22,17 @@ public class MainFrame extends JFrame {
 		
 		toolbar = new Toolbar();
 		textPanel = new TextPanel();
-		btn = new JButton("Click Me!");
 		
-		//Action Listener
-		btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textPanel.appendText("Hello\n");
+		toolbar.setStringListener(new StringListener() { //Anonymous class
+			public void textEmitted(String text) {
+				textPanel.appendText(text);
 			}
 			
 		});
 		
 		add(toolbar, BorderLayout.NORTH);
 		add(textPanel, BorderLayout.CENTER);
-		add(btn, BorderLayout.SOUTH);
+		
 		
 		
 		setSize(600, 500);
